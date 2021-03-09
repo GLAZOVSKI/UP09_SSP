@@ -12,6 +12,8 @@
         <p class="h5 my-0 me-md-auto fw-normal">GLZVSKI LTD</p>
         <nav class="my-2 my-md-0 me-md-3">
           <a class="p-2 text-dark" href="/">Home</a>
+          <a class="p-2 text-dark" href="/contacts">Contacts</a>
+          <a class="p-2 text-dark" href="/services">Services</a>
           <a class="p-2 text-dark" href="/portfolio">Portfolio</a>
         </nav>
         <a class="btn btn-outline-primary" href="#">Sign up</a>

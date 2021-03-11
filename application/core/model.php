@@ -1,10 +1,10 @@
 <?php
+spl_autoload_register();
+
+use application\core\DB;
+
 class Model {
-	private $host = 'localhost';
-	private $port = '';
-	private $user = 'root';
-	private $password = 'root';
-	private $dbName = 'SSP';
+	use DB;
 
 	private $dph;
 

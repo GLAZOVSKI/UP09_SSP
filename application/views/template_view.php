@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
   <head>
@@ -17,6 +18,7 @@
           <a class="p-2 text-dark" href="/portfolio">Portfolio</a>
         </nav>
         <a class="btn btn-outline-primary" href="#">Sign up</a>
+        <a class="btn btn-warning ms-2" href="/register">Sign in</a>
       </header>
 
       <?php include 'application/views/'.$content_view; ?>

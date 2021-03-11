@@ -14,4 +14,13 @@ class View
 
 		include 'application/views/'.$template_view;
 	}
+
+	function redirect($redirect_name, $message = null) {
+		if (isset($message)) {
+			session_start();
+ 		 	$_SESSION['message'] = $message;
+		}
+
+		header("Location: $redirect_name");
+	}
 }

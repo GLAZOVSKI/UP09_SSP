@@ -7,6 +7,12 @@ use application\core\User;
 class Controller_Register extends Controller {
 
 	function action_index() {
+		$user = new User();
+
+		if ($user->init()) {
+			$this->view->redirect('/home');
+		}
+
 		$this->view->generate('register_view.php', 'template_view.php', $data);
 	}
 

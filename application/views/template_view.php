@@ -17,8 +17,14 @@
           <a class="p-2 text-dark" href="/services">Services</a>
           <a class="p-2 text-dark" href="/portfolio">Portfolio</a>
         </nav>
-        <a class="btn btn-outline-primary" href="#">Sign up</a>
-        <a class="btn btn-warning ms-2" href="/register">Sign in</a>
+
+        <?php  if (isset($_SESSION['userID'])) {?>
+          <a class="btn btn-outline-info" href="/account">Account</a>
+          <a class="btn btn-outline-danger ms-2" href="/logout">Logout</a>
+        <?php }else { ?>
+          <a class="btn btn-outline-primary" href="/login">Login</a>
+          <a class="btn btn-outline-success ms-2" href="/register">Register</a>
+        <?php } ?>
       </header>
 
       <?php include 'application/views/'.$content_view; ?>

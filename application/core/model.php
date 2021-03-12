@@ -25,4 +25,8 @@ class Model {
 	public function issetRecord($query):bool {
 		return $this->dbh->query($query)->fetchColumn();
 	}
+
+	public function delete($query):bool {
+		return $this->dbh->query($query)->fetchColumn();
+	}
 }

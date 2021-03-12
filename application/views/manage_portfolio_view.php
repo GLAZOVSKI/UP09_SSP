@@ -2,9 +2,42 @@
   function showEditField(id) {
     document.getElementById('edit_' + id).hidden = !document.getElementById('edit_' + id).hidden;
   }
+
+  function showNewRecord() {
+    document.getElementById('newRecord').hidden = !document.getElementById('newRecord').hidden;
+  }
 </script>
 
-<h1>Управление портфолио</h1>
+<div class="d-flex">
+  <h1>Управление портфолио</h1> <button type="submit" class="btn btn-primary ms-4" onclick="showNewRecord()">Новая запись</button>
+</div>
+
+<div class="bg-dark rounded p-2 mt-4" id="newRecord" hidden>
+  <form class="m-0 p-0" action="manage_portfolio/add" method="post">
+
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Год" name="year">
+
+      <input type="text" class="form-control" placeholder="Сайт" name="site">
+
+      <input type="text" class="form-control" placeholder="Описание" name="description">
+
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="send">Добавить</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<?php if(isset($_SESSION['message'])) { ?>
+  <div class="alert alert-warning mt-2 mb-0">
+    <?php
+      echo $_SESSION['message'];
+      unset($_SESSION['message']);
+    ?>
+  </div>
+<?php } ?>
+
 <div class="col-12 mt-4">
   <div class="row">
     <?php
@@ -35,7 +68,9 @@
         </div>
 
         <div class="bg-dark rounded p-2 mb-2" id="edit_<?= $row['id'] ?>" hidden>
-          <form class="m-0 p-0" action="" method="post">
+          <form class="m-0 p-0" action="manage_portfolio/edit" method="post">
+            <input type="hidden" name="id" value="<?= $row['id'] ?>">
+
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Год" name="year">
 

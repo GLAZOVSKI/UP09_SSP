@@ -39,16 +39,16 @@ class User {
     }
   }
 
-  public function init() {
-    if ($this->loggedIn && in_array($_SERVER['REQUEST_URI'], $this->staticPages)) {
-      return true;
-    }
-
-    return false;
+  public function init() { // Если пользователь залогинен и находиться на одной из указанных страниц
+    return $this->loggedIn && in_array($_SERVER['REQUEST_URI'], $this->staticPages);
   }
 
-  public function is_auth() {
+  public function is_auth() { // Проверка авторизации
     return $this->loggedIn;
+  }
+
+  public function getID() {
+    return $this->session;
   }
 
   public function registration($email, $password, $other = []) {

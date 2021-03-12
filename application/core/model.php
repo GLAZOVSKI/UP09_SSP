@@ -1,7 +1,9 @@
 <?php
+namespace application\core;
 spl_autoload_register();
 
 use application\core\DB;
+use PDO;
 
 class Model {
 	use DB;
@@ -18,5 +20,9 @@ class Model {
 
 	public function getRecords($query) {
 		return $this->dbh->query($query)->fetchAll();
+	}
+
+	public function issetRecord($query):bool {
+		return $this->dbh->query($query)->fetchColumn();
 	}
 }

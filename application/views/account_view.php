@@ -5,6 +5,7 @@
     <h5>Панель администратора</h5>
     <div>
       <a href="/manage_portfolio" class="btn btn-warning">Управление портфолио</a>
+      <a href="/manage_news" class="btn btn-info">Управление новостями</a>
     </div>
   </div>
 <?php } ?>

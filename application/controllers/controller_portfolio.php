@@ -1,5 +1,4 @@
 <?php
-use application\core\User;
 use application\models\Model_Portfolio;
 
 class Controller_Portfolio extends Controller {

@@ -4,7 +4,7 @@
   <div class="row">
     <?php
       foreach ($data as $row) { ?>
-        <div class="col-12 bg-dark text-light my-1 d-flex align-items-center">
+        <div class="col-12 bg-dark text-light my-1 d-flex align-items-center rounded p-2">
           <div class="col-3">
             <?= $row['year'] ?>
           </div>

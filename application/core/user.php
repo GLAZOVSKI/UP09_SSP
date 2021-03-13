@@ -94,7 +94,7 @@ class User {
 
   public function auth($email, $password) {
     if (!$this->userExist($email)) {
-      $userData = $this->dbh->prepare("SELECT `id`, `password`, `passwordSalt` FROM `users` WHERE email = :email");
+      $userData = $this->dbh->prepare("SELECT `id`, `password`, `passwordSalt`, `blocked` FROM `users` WHERE email = :email");
       $userData->bindValue(":email", $email);
       $userData->execute();
 
@@ -103,14 +103,19 @@ class User {
       $userID  = $row['id'];
       $userPass = $row['password'];
       $passwordSalt = $row['passwordSalt'];
+      $block = $row['blocked'];
 
       $saltedPass = hash('sha256', "{$password}{$this->secretKey}{$passwordSalt}");
 
       if ($userPass == $saltedPass) {
-        $_SESSION['userID'] = $userID;
-        setcookie("sysLogin", hash("sha256", $this->secretKey.$userID.$this->secretKey), time()+3600*99*500, "/");
+        if (!$block) {
+          $_SESSION['userID'] = $userID;
+          setcookie("sysLogin", hash("sha256", $this->secretKey.$userID.$this->secretKey), time()+3600*99*500, "/");
 
-        return true;
+          return true;
+        }else {
+          return 'blocked';
+        }
       }else {
         return false;
       }

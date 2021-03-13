@@ -31,15 +31,6 @@
           <input type="text" class="form-control" id="lastName" name="lastName" required>
       </div>
 
-      <?php if(isset($_SESSION['message'])) { ?>
-        <div class="alert alert-warning mt-2 mb-0">
-          <?php
-            echo $_SESSION['message'];
-            unset($_SESSION['message']);
-          ?>
-        </div>
-      <?php } ?>
-
       <button type="submit" class="btn btn-primary mt-2" name="submit">Регистрация</button>
   </form>
 </div>

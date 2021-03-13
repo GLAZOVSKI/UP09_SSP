@@ -29,15 +29,6 @@
   </form>
 </div>
 
-<?php if(isset($_SESSION['message'])) { ?>
-  <div class="alert alert-warning mt-2 mb-0">
-    <?php
-      echo $_SESSION['message'];
-      unset($_SESSION['message']);
-    ?>
-  </div>
-<?php } ?>
-
 <div class="col-12 mt-4">
   <div class="row">
     <?php

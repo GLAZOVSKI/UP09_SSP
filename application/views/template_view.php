@@ -28,6 +28,15 @@
         <?php } ?>
       </header>
 
+      <?php if(isset($_SESSION['message'])) { ?>
+        <div class="alert alert-warning mt-1 mb-0">
+          <?php
+            echo $_SESSION['message'];
+            unset($_SESSION['message']);
+          ?>
+        </div>
+      <?php } ?>
+
       <?php include 'application/views/'.$content_view; ?>
     </div>
   </body>

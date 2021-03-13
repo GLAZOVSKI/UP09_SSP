@@ -6,15 +6,6 @@ function comments(id) {
 
 <h1>Новости</h1>
 
-<?php if(isset($_SESSION['message'])) { ?>
-  <div class="alert alert-warning mt-2 mb-0">
-    <?php
-      echo $_SESSION['message'];
-      unset($_SESSION['message']);
-    ?>
-  </div>
-<?php } ?>
-
 <div class="col-12">
   <?php foreach ($data['news'] as $row) { ?>
     <div class="col-12 bg-dark text-light my-2 p-2 rounded">

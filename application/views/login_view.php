@@ -11,15 +11,6 @@
         <input type="password" class="form-control" id="password" name="password" required>
     </div>
 
-    <?php if(isset($_SESSION['message'])) { ?>
-      <div class="alert alert-warning mt-2 mb-0">
-        <?php
-          echo $_SESSION['message'];
-          unset($_SESSION['message']);
-        ?>
-      </div>
-    <?php } ?>
-
     <button type="submit" class="btn btn-primary mt-2" name="register">Войти</button>
 </form>
 </div>

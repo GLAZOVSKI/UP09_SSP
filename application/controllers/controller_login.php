@@ -21,8 +21,10 @@ class Controller_Login extends Controller {
 		if (isset($email) && isset($password)) {
 			$login = new User();
 
-			if ($login->auth($email, $password)) {
+			if ($login->auth($email, $password) === true) {
 				$this->view->redirect('/account');
+			}elseif ($login->auth($email, $password) === 'blocked') {
+				$this->view->redirect('/login', 'Вы заблокированы.');
 			}else {
 				$this->view->redirect('/login', 'Неверный логин или пароль.');
 			}

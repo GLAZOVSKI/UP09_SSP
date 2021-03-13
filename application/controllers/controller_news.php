@@ -57,12 +57,14 @@ class Controller_News extends Controller {
 				);
 
 				$this->model->create_comment('comments', $data);
+				$this->view->redirect('/news', 'Комментарий добавлен.');
 			}else {
 				$this->view->redirect('/news', 'Заполните все поля.');
 			}
+		}else {
+			$this->view->redirect('/login', 'Необходимо войти в аккаунт.');
 		}
 
-		$this->view->redirect('/news', 'Комментарий добавлен.');
 		return true;
 	}
 }

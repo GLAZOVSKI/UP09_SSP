@@ -55,14 +55,13 @@
             <?= $row['description'] ?>
           </div>
 
-          <div class="col-2 text-center">
-            <button type="submit" class="btn btn-warning" onclick="showEditField(<?= $row['id'] ?>)">Изменить</button>
-          </div>
 
-          <div class="col-1 text-center">
-            <form class="m-0 p-0" action="manage_portfolio/delete" method="post">
+
+          <div class="text-center w-100 d-flex justify-content-end">
+            <form class="m-0 p-0 d-flex" action="manage_portfolio/delete" method="post">
               <input type="hidden" name="id" value="<?= $row['id'] ?>">
               <button type="submit" class="btn btn-danger">Удалить</button>
+              <button type="button" class="btn btn-warning ms-2" onclick="showEditField(<?= $row['id'] ?>)">Изменить</button>
             </form>
           </div>
         </div>

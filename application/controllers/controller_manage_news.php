@@ -26,7 +26,13 @@ class Controller_Manage_News extends Controller {
 
 	function action_index() {
 		if ($this->checkUser()) {
-			$data = $this->modelNews->get_data();
+			$user =  new User();
+
+			$data = array(
+				'news' => $this->modelNews->get_data(),
+				'comments' => $this->modelNews->get_comments(),
+			);
+
 			$this->view->generate('manage_news_view.php', 'template_view.php', $data);
 			return true;
 		}
@@ -39,7 +45,7 @@ class Controller_Manage_News extends Controller {
 			$postID = (int)$_POST['id'];
 
 			$this->modelNews->delete_record($postID);
-			$this->view->redirect('/manage_news');
+			$this->view->redirect('/manage_news', 'Запись удалена.');
 			return true;
 		}
 
@@ -67,7 +73,7 @@ class Controller_Manage_News extends Controller {
 
 			$this->modelNews->update_record('news', $data, $postID);
 
-			$this->view->redirect('/manage_news');
+			$this->view->redirect('/manage_news', 'Запись изменена.');
 			return true;
 		}
 
@@ -92,5 +98,16 @@ class Controller_Manage_News extends Controller {
 			$this->view->redirect('/manage_news', 'Заполните все поля.');
 			return true;
 		}
+	}
+
+	function action_delete_comment() {
+			if ($this->checkUser()) {
+				$commentID = (int)$_POST['id'];
+
+				$this->modelNews->admin_delete_comment($commentID);
+				$this->view->redirect('/manage_news', 'Комментарий удален.');
+
+				return true;
+			}
 	}
 }

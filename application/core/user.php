@@ -47,7 +47,7 @@ class User {
     return $this->loggedIn;
   }
 
-  public function getID() {
+  public function getID():int {
     return $this->session;
   }
 
